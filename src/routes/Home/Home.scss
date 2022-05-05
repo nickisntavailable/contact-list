@@ -1,0 +1,60 @@
+$gray: rgb(210, 210, 210);
+
+.home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    h1 {
+        margin: 0;
+    }
+    &-submit, input{
+        max-width: 300px;
+        width: 95%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    input {
+        outline: none;
+        border: none;
+        margin: 1px;
+        transition: border .3s ease-in-out;
+        &:hover {
+            border: 1px solid $gray;
+            margin: 0px;
+        }
+        &:focus {
+            background-color: rgb(229, 239, 246);
+            border: 1px solid $gray;
+            margin: 0px;
+        }
+        &::placeholder {
+            color:rgb(128, 128, 128)
+        }
+    }
+    &-submit {
+        border: none;
+        background-color: rgb(249, 227, 227);
+        margin: 1px;
+        transition: border .3s ease-in-out;
+        transition: background-color .3s ease-in-out;
+        &.active {
+            background-color: rgb(227, 249, 230);
+        }
+        &:hover {
+            border: 1px solid $gray;
+            margin: 0px;
+        }
+    }
+    &-disclaimer {
+        color: red;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        &.active {
+            opacity: 1;
+        }
+    }
+}

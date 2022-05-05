@@ -1,0 +1,43 @@
+$size: 20px;
+$thickness: 1px;
+$color: gray;
+
+.contacts-item {
+  max-width: 400px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 27px 0px rgba(34, 60, 80, 0.2);
+  display: flex;
+  flex-wrap: nowrap;
+  p {
+    margin: 0;
+    flex: 1;
+  }
+  &-remove {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    position: relative;
+    width: $size;
+    height: $size;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: ($size - $thickness) / 2;
+        left: 0;
+        right: 0;
+        height: $thickness;
+        background: $color;
+        border-radius: $thickness;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}

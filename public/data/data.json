@@ -1,0 +1,70 @@
+{
+    "user": {
+        "id": "user",
+        "name": "Kolesnikov Daniil",
+        "contacts": [
+            {
+                "id": "0",
+                "name": "First Person"
+            },
+            {
+                "id": "1",
+                "name": "Second Person"
+            },
+            {
+                "id": "2",
+                "name": "Third Person"
+            },
+            {
+                "id": "3",
+                "name": "Fourth Person"
+            },
+            {
+                "id": "4",
+                "name": "Fifth Person"
+            }
+        ]
+    },
+    "contactList": [
+        {
+            "id": "0",
+            "name": "First Person"
+        },
+        {
+            "id": "1",
+            "name": "Second Person"
+        },
+        {
+            "id": "2",
+            "name": "Third Person"
+        },
+        {
+            "id": "3",
+            "name": "Fourth Person"
+        },
+        {
+            "id": "4",
+            "name": "Fifth Person"
+        },
+        {
+            "id": "5",
+            "name": "Sixth Person"
+        },
+        {
+            "id": "6",
+            "name": "Seventh Person"
+        },
+        {
+            "id": "7",
+            "name": "Eighth Person"
+        },
+        {
+            "id": "8",
+            "name": "Nineth Person"
+        },
+        {
+            "id": "9",
+            "name": "Tenth Person"
+        }
+    ]
+}

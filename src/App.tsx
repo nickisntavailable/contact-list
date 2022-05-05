@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { RootState } from "app/constants";
+import { useSelector } from "react-redux";
+import { Navigate, Route, Routes } from "react-router-dom";
+import "./App.scss";
+import Contacts from "./routes/Contacts/Contacts";
+import Home from "./routes/Home/Home";
+
+type ProtectedPathProps = {
+  isAuthed: boolean;
+  children: React.ReactElement;
+};
+
+const ProtectedPath = ({ isAuthed, children }: ProtectedPathProps) => {
+  if (!isAuthed) {
+    return <Navigate to="/" />;
+  }
+  return children;
+};
 
 function App() {
+  const isAuthed = useSelector<RootState>(
+    (state) => state.data.isAuthed
+  ) as boolean;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route
+        path="/contacts"
+        element={
+          <ProtectedPath isAuthed={isAuthed}>
+            <Contacts />
+          </ProtectedPath>
+        }
+      />
+    </Routes>
   );
 }
 
