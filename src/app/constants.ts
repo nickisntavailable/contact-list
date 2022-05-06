@@ -5,6 +5,7 @@ export const SET_DATA = "SET_DATA";
 export const SET_IS_AUTHED = "SET_IS_AUTHED";
 
 export const CHANGE_USER = "CHANGE_USER";
+export const CHANGE_CONTACTS = "CHANGE_CONTACTS";
 
 export const API_URL = "../data/data.json"
 

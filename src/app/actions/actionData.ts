@@ -1,4 +1,4 @@
-import { API_URL, CHANGE_USER, RootState, SET_DATA, SET_IS_AUTHED, SET_IS_LOADING } from "app/constants";
+import { API_URL, CHANGE_CONTACTS, CHANGE_USER, RootState, SET_DATA, SET_IS_AUTHED, SET_IS_LOADING } from "app/constants";
 import { TAuth, TUser } from "app/types";
 import { AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
@@ -34,6 +34,12 @@ export const changeUser = (user: TUser & {contacts: TUser[]}) => {
     payload: {user}
   };
 };
+export const changeContactsList = (contactList: TUser[]) => {
+  return {
+    type: CHANGE_CONTACTS,
+    payload: {contactList}
+  };
+};
 
 
 
@@ -60,6 +66,24 @@ export const addContactFromUser = (contactId: string): any => {
       name: user.name,
       contacts: list
     }))
+
+  };
+};
+
+export const changeContactName = (contactId: string, name:string): any => {
+  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>, getState: () => RootState) => {
+    const {user, contactList} = getState().data
+    // const list = user.contacts.find(e => e.id === contactId) ? user.contacts : [...user.contacts, contactList.filter(e => e.id === contactId).pop()!]
+    const list = user.contacts.map(c => c.id === contactId ? {...c, name} : c)
+    
+    dispatch(changeUser({
+      id: user.id,
+      name: user.name,
+      contacts: list
+    }))
+    const contacts = contactList.map(c => c.id === contactId ? {...c, name} : c)
+
+    dispatch(changeContactsList(contacts))
 
   };
 };

@@ -1,4 +1,4 @@
-import { CHANGE_USER, SET_DATA, SET_IS_AUTHED, SET_IS_LOADING } from "app/constants";
+import { CHANGE_CONTACTS, CHANGE_USER, SET_DATA, SET_IS_AUTHED, SET_IS_LOADING } from "app/constants";
 import { TUser } from "app/types";
 
 interface IAction {
@@ -36,6 +36,12 @@ const data = (state = [], action: IAction) => {
       return {
         ...state, 
         user: action.payload.user
+      }
+    }
+    case CHANGE_CONTACTS: {
+      return {
+        ...state, 
+        contacts: action.payload.contactList
       }
     }
     default:
